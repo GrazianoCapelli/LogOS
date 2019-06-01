@@ -1,1 +1,1 @@
-# LogOS_Tachistoscopio
+# LogOS Tachistoscopio

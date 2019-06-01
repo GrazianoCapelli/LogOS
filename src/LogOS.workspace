@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="LogOS" Database="" Version="10.0.0">
+  <Project Name="LogOS" Path="LogOS.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="no">
+      <Environment/>
+      <Project Name="LogOS" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Linux" Selected="yes">
+      <Environment/>
+      <Project Name="LogOS" ConfigName="Linux"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Windows" Selected="no">
+      <Environment/>
+      <Project Name="LogOS" ConfigName="Windows"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

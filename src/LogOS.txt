@@ -1,0 +1,1 @@
+./Linux/globals.cpp.o ./Linux/wxcrafter_bitmaps.cpp.o ./Linux/DlgNuovoEsercizio.cpp.o ./Linux/Emoticons.cpp.o ./Linux/wxcrafter.cpp.o ./Linux/DlgNuovoPaziente.cpp.o ./Linux/main.cpp.o ./Linux/FrmPaziente.cpp.o ./Linux/MainFrame.cpp.o ./Linux/FrmReport.cpp.o ./Linux/FrmProiettore.cpp.o
