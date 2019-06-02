@@ -1,3 +1,22 @@
+/**
+ * FrmProiettore.cpp
+ * Created by G.Capelli on 26/04/2014
+ * This file is part of LogOS (https://github.com/GrazianoCapelli/LogOS)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "FrmProiettore.h"
 #include "DlgNuovoEsercizio.h"
 #include "FrmPaziente.h"
@@ -240,6 +259,7 @@ void FrmProiettore::OnProjectorTimer(wxTimerEvent& event)
 			m_panelItemCheck->SetBackgroundColour(BGColour);
 			m_textCtrlItemCheck->Hide();
 			m_staticTextItem->SetLabel(Preavviso);
+			m_staticTextItem->Refresh();
 			m_staticTextItem->GetParent()->Layout();
 			m_staticBitmapEmoticon->Hide();
 			m_staticTextMessage->Hide();
@@ -250,6 +270,7 @@ void FrmProiettore::OnProjectorTimer(wxTimerEvent& event)
 		case (2):
 			if (TimerCounter % 2) m_staticTextItem->SetForegroundColour(BGColour);	// Dispari = Nascondo
 			else m_staticTextItem->SetForegroundColour(FGColour);					// Pari = Mostro
+			m_staticTextItem->Refresh();
 			m_staticTextItem->GetParent()->Layout();
 			TimerCounter++;
 			ProjectorTimer.Start(100, true);
@@ -263,6 +284,7 @@ void FrmProiettore::OnProjectorTimer(wxTimerEvent& event)
 			}
 			m_staticTextItem->SetForegroundColour(BGColour);
 			m_staticTextItem->SetLabel(CurrentSlide->Value);
+			m_staticTextItem->Refresh();
 			m_staticTextItem->GetParent()->Layout();
 			TimerCounter++;
 			if (!Proj_Preavviso) ProjectorTimer.Start(550, true);
@@ -270,6 +292,7 @@ void FrmProiettore::OnProjectorTimer(wxTimerEvent& event)
 			break;
 		case (4):																	// Mostro l'item;
 			m_staticTextItem->SetForegroundColour(FGColour);
+			m_staticTextItem->Refresh();
 			m_staticTextItem->GetParent()->Layout();
 			TimerCounter++;
 			ProjectorTimer.Start(CurrentSlide->exposureTime, true);
@@ -277,6 +300,7 @@ void FrmProiettore::OnProjectorTimer(wxTimerEvent& event)
 		case (5):																	// Comportamento proiettore con mascheramento attivato;
 																					// Nascondo l'item;
 			m_staticTextItem->SetForegroundColour(BGColour);
+			m_staticTextItem->Refresh();
             m_staticTextItem->GetParent()->Layout();
 			TimerCounter = TimerCounter + 1 + MASCHERAMENTO;
 			ProjectorTimer.Start(100, true);
@@ -285,12 +309,14 @@ void FrmProiettore::OnProjectorTimer(wxTimerEvent& event)
 			m_staticTextItem->SetForegroundColour(BGColour);
 			m_staticTextItem->SetLabel(strmask);
 			m_staticTextItem->SetForegroundColour(FGColour);
+			m_staticTextItem->Refresh();
             m_staticTextItem->GetParent()->Layout();
 			TimerCounter++;
 			ProjectorTimer.Start(200, true);
 			break;
 		case (7):																	// Nascondo il mascheramento;
 			m_staticTextItem->SetForegroundColour(BGColour);
+			m_staticTextItem->Refresh();
             m_staticTextItem->GetParent()->Layout();
 			TimerCounter++;
 			ProjectorTimer.Start(250, true);
@@ -428,8 +454,9 @@ void FrmProiettore::VerificaCompletata() {
 	m_buttonYes->GetParent()->Layout();
 
 	if ((CurrentSlide->Answer != "") || (Proj_VerificaRisposta)) {
+		m_buttonAvanti->DeletePendingEvents();
 		m_buttonAvanti->Enable();
-		m_buttonAvanti->SetFocus();
+		m_buttonTermina->SetFocus();
 
 		CurrentSlide->CorrectAnswer = (CurrentSlide->Value == CurrentSlide->Answer);
 
@@ -449,6 +476,7 @@ void FrmProiettore::VerificaCompletata() {
 
 		} else {								// Se la risposta è sbagliata
 			m_staticTextItem->SetForegroundColour(FGColour);
+			m_staticTextItem->Refresh();
             m_staticTextItem->GetParent()->Layout();
 
 			m_staticBitmapEmoticon->SetBitmap(Emoticon_Ouch);

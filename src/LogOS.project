@@ -174,7 +174,7 @@
         <IncludePath Value="."/>
         <Preprocessor Value="NDEBUG"/>
       </Compiler>
-      <Linker Options="-static; -static-libgcc; -static-libstdc++; -mwindows; $(shell wx-config --libs);" Required="yes"/>
+      <Linker Options="-static; -static-libgcc; -static-libstdc++; -mwindows; $(shell wx-config --libs);-loleacc; -lUxTheme" Required="yes"/>
       <ResourceCompiler Options="$(shell wx-config --rcflags);" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Win32" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="no" IsGUIProgram="yes" IsEnabled="yes"/>
       <BuildSystem Name="Default"/>

@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="/home/Graziano/Dropbox/Projects/LogOS/LogOS.workspace">
-  <int Value="0" Name="m_selectedTab"/>
+  <int Value="2" Name="m_selectedTab"/>
   <wxString Value="/home/Graziano/Dropbox/Projects/LogOS/LogOS.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="/home/Graziano/Dropbox/Projects/LogOS/DlgNuovoEsercizio.cpp" Name="FileName"/>
-      <int Value="407" Name="FirstVisibleLine"/>
+      <int Value="0" Name="FirstVisibleLine"/>
       <int Value="423" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/Graziano/Dropbox/Projects/LogOS/MainFrame.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="0" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/Graziano/Dropbox/Projects/LogOS/globals.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="337" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
