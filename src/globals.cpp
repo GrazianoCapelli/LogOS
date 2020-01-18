@@ -316,6 +316,11 @@ void LoadLists ()
 				
 				List NewList;
 				NewList.Name = filename;
+				if (NewList.Name.EndsWith(".txt") || (NewList.Name.EndsWith(".TXT")))
+				{
+					NewList.Name.Truncate(NewList.Name.length()-4);
+				}
+				
 				NewList.FileName = dir.GetName();
 				NewList.FileName.Append(DirChar);
 				NewList.FileName.Append(filename.c_str());

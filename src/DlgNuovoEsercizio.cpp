@@ -470,7 +470,12 @@ void DlgNuovoEsercizio::doPopulateCheckListBoxListe()
 	wxString filename;
 	bool cont = dir.GetFirst(&filename, wxEmptyString,wxDIR_FILES);
 	while ( cont ) {
-		m_checkListBoxListe->Append(filename.c_str());
+		wxString listname = filename;
+		if (listname.EndsWith(".txt") || (listname.EndsWith(".TXT")))
+		{
+			listname.Truncate(listname.length()-4);
+		}
+		m_checkListBoxListe->Append(listname.c_str());
 		//printf("%s\n", filename.c_str());
 		cont = dir.GetNext(&filename);
 	}

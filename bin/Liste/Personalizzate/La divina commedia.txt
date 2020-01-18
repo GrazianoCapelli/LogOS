@@ -8,37 +8,18 @@
 # Questa lista è rilasciata sotto licenza
 # Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-1
-Nel
-2
-mezzo
-1
-del
-2
-cammin
-1
-di
-2
-nostra
-vita
-1
-mi
-4
-ritrovai
-1
-per
-2
-una
-selva
-3
-oscura
-1
-che
-la
-3
-diritta
-2
-via
-era
-3
-smarrita
+1 Nel
+2 mezzo
+1 del
+2 cammin
+1 di
+2 nostra vita
+1 mi
+4 ritrovai
+1 per
+2 una selva
+3 oscura
+1 che la
+3 diritta
+2 via era
+3 smarrita
