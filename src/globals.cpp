@@ -500,23 +500,38 @@ bool Filter::Check(wxString ItemString)
 
 void MakeFilteredList()
 {
-	ItemListFiltered.clear();
-	ItemListFiltered.assign(ItemListUnfiltered.begin(), ItemListUnfiltered.end());
+	ItemListFiltered.clear();	// Pulizia della lista filtrata
 	
 	// Eseguo il filtraggio
 	
-	if(!ItemListFiltered.empty())
+	if(!ItemListUnfiltered.empty())
 	{
-		for (std::list<Item>::iterator filter_iter = ItemListFiltered.begin(); filter_iter != ItemListFiltered.end(); ) {
-			if (!FilterList1.Check(filter_iter->Value) || (!FilterList2.Check(filter_iter->Value)) || (!FilterList3.Check(filter_iter->Value)))
+		for (std::list<Item>::iterator filter_iter = ItemListUnfiltered.begin(); filter_iter != ItemListUnfiltered.end(); filter_iter++) {
+			if (FilterList1.Check(filter_iter->Value) && (FilterList2.Check(filter_iter->Value)) && (FilterList3.Check(filter_iter->Value)))
 			{
-				filter_iter = ItemListFiltered.erase(filter_iter);
-			}
-			else
-			{
-				++filter_iter;
+				// Aggiungo alla lista
+				if (ItemListFiltered.empty()) {
+					ItemListFiltered.push_back(*filter_iter);	// Primo item della lista
+				}
+				else {
+					bool inserted = false;
+					for (std::list<Item>::iterator iter = ItemListFiltered.begin(); iter != ItemListFiltered.end() && !inserted; iter++) {
+						if (iter->Value == filter_iter->Value) {
+							// Non inserisce duplicati!
+							inserted = true;
+							break;
+						}
+						if (iter->Value < filter_iter->Value) {
+							ItemListFiltered.insert(iter, *filter_iter);	// Inserisce nel mezzo della lista
+							inserted = true;
+							break;
+						}
+					}
+					if (!inserted) ItemListFiltered.push_back(*filter_iter);	// Inserisce in fondo alla lista, come ultimo elemento
+				}
 			}
 		}
+		if (!ItemListFiltered.empty()) ItemListFiltered.reverse();
 	}	
 	
 	// Inventario del numero di sillabe
