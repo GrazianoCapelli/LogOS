@@ -25,7 +25,8 @@
 #include <wx/wx.h>
 
 
-// delete all vowels from the string
+// Controllo se una stringa è valida.
+// Per essere valida una stringa può contenere solo caratteri alfanumerici, apostrofi, segni "meno" e spazi)
 bool ValidString(const wxString& original)
 {
 	bool bresult = false;
@@ -33,7 +34,7 @@ bool ValidString(const wxString& original)
 	size_t len = original.length();
 	result.Alloc(len);
 	for ( size_t n = 0; n < len; n++ ) {
-		if ( strchr("abcdefghijklmnopqrstuvwxyz-1234567890 ", tolower(original[n])) != NULL )
+		if ( strchr("abcdefghijklmnopqrstuvwxyz'-1234567890 ", tolower(original[n])) != NULL )
 			result += original[n];
 	}
 	if (result == original) bresult = true;

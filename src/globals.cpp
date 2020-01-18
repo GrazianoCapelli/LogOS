@@ -39,7 +39,7 @@
 #endif
 
 //wxString VersionName = "v1.2.0";		// La versione del software
-wxString VersionName = "v1.2.1b_20190601";		// La versione del software
+wxString VersionName = "v1.2.1b_20200118";		// La versione del software
 
 
 // --------------------- PAZIENTI -----------------------------
